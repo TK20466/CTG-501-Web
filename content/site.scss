@@ -1,3 +1,28 @@
+$CTGBlue: #007db0;
+
 html {
+   font-family: 'Abel', sans-serif;
+}
+
+body {
+   background-color: black;
+   background-image: url("/content/images/background.jpg");
+   background-position-x: 0%, 100%;
+   background-position-y: 0%, 0%;
+   background-size: auto, auto;
+   background-attachment: fixed, fixed;
+   color: rgb(153, 153, 153);
+}
+
+h1, h2, h3, h4, h5 {
    font-family: 'Dosis', sans-serif;
+   text-transform: uppercase; //all headings should be shouting
+   //some cool magic lines to make headings stand out more
+   border-top: 2px solid $CTGBlue;
+   border-bottom: 2px solid $CTGBlue;
+   color: rgb(185, 185, 185);
+   padding-top: 6px;
+   padding-bottom: 6px;
+   padding-left: 20px;
+   margin-bottom: 20px;
 }

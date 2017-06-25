@@ -1,3 +1,25 @@
 html {
+  font-family: 'Abel', sans-serif;
+}
+
+body {
+  background-color: black;
+  background-image: url("/content/images/background.jpg");
+  background-position-x: 0%, 100%;
+  background-position-y: 0%, 0%;
+  background-size: auto, auto;
+  background-attachment: fixed, fixed;
+  color: #999999;
+}
+
+h1, h2, h3, h4, h5 {
   font-family: 'Dosis', sans-serif;
+  text-transform: uppercase;
+  border-top: 2px solid #007db0;
+  border-bottom: 2px solid #007db0;
+  color: #b9b9b9;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
