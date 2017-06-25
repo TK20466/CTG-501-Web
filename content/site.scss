@@ -1,7 +1,155 @@
 $CTGBlue: #007db0;
+$CTGBlue-faded: rgba(0, 125, 176, .6);
+$DSDark: #2d2926;
+$DSDarkish: #393633;
+$DSLight: #999;
+$Abel: 'Abel', sans-serif;
+$Dosis: 'Dosis', sans-serif;
 
 html {
-   font-family: 'Abel', sans-serif;
+   font-family: $Abel;
+   font-size: 16px;
+}
+
+a {
+   text-decoration: none;
+   color: $CTGBlue;
+}
+
+article {
+   color: $DSLight;
+   background-image: url("/content/images/metal.png");
+   background-size:40px;
+   background-color: $DSDark;
+   background-repeat-y: no-repeat;
+   //border: 2px solid $CTGBlue-faded;
+   border-radius: 3px;
+   margin-bottom: 15px;
+   padding-bottom: 15px;
+   clear: both;
+   position: relative;
+
+   header, footer, .main-text {
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+
+   header {
+      padding-top: 15px;
+   }
+
+   header>h3 {
+      color: white;
+   }
+   footer {
+      padding-top: 5px;
+      text-transform: uppercase;
+      font-family: $Dosis;
+      letter-spacing: .8px;
+   }
+
+   &.has-affix-right {
+      padding-right: 110px;
+         min-height: 367px;
+   }
+
+   .affix-right {
+      width: 110px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0 3px 3px 0;
+   }
+
+   .header-image {
+      width: 100%;
+      max-height: 300px;
+      border-radius: 3px 3px 0 0;
+      overflow-y: hidden;
+      float: left;
+      margin-bottom: 15px;
+      border-bottom: 2.5px solid $CTGBlue;
+      >img {
+         width: 100%;
+      }
+   }
+}
+
+.date-panel {
+   background-color: $DSDarkish;
+   height: 100%;
+   width: 100%;
+   text-align: center;
+   border-radius: 0 3px 3px 0;
+
+   .date {
+      text-transform: uppercase;
+      font-family: $Dosis;
+      padding-bottom: 20px;
+      position: relative;
+      border-bottom: 3px solid $CTGBlue-faded;
+      >div:nth-of-type(1) {
+         font-size: 32px;
+         line-height: 0.5;
+         color: white;
+         padding-top: 20px;
+         font-weight: bold;
+      }
+      >div:nth-of-type(2) {
+         font-size: 24px;
+         font-weight: bold;
+         line-height: 0.5;
+         padding-top:12px;
+      }
+      >div:nth-of-type(3) {
+         font-size: 19px;
+         font-weight: bold;
+      }
+      >div:nth-of-type(4) {
+         font-size: 16px;
+         font-weight: bold;
+         color: white;
+      }
+   }
+
+   .date.end {
+      &:before {
+         position: absolute;
+         content: "TO";
+         font-family: $Dosis;
+         font-weight: bold;
+         left: 0;
+         right: 0;
+         margin: 0 auto;
+         top: -12px;
+         background-color: $DSDarkish;
+         width: 44px;
+      }
+   }
+   .location {
+      text-transform: uppercase;
+      font-family: $Dosis;
+      font-size: 24px;
+      color: white;
+      padding: 15px 0;
+      font-weight: bold;
+      display: block;
+      &:hover {
+         color: $DSLight;
+      }
+   }
+   .info {
+      text-transform: uppercase;
+      font-family: $Dosis;
+      font-size: 24px;
+      color: $DSDarkish;
+      padding: 15px 0;
+      font-weight: bold;
+      display: block;
+      background-color: $CTGBlue;
+   }
+
 }
 
 body {
@@ -9,7 +157,7 @@ body {
    background-image: url("/content/images/background.jpg");
    background-position-x: 0%, 100%;
    background-position-y: 0%, 0%;
-   background-size: auto, auto;
+   background-size: 100%;
    background-attachment: fixed, fixed;
    color: rgb(153, 153, 153);
 }
@@ -17,6 +165,12 @@ body {
 h1, h2, h3, h4, h5 {
    font-family: 'Dosis', sans-serif;
    text-transform: uppercase; //all headings should be shouting
+   margin-bottom: 5px;
+   margin-top: 5px;
+   letter-spacing: .8px;
+}
+
+h1, h2 {
    //some cool magic lines to make headings stand out more
    border-top: 2px solid $CTGBlue;
    border-bottom: 2px solid $CTGBlue;
@@ -25,4 +179,66 @@ h1, h2, h3, h4, h5 {
    padding-bottom: 6px;
    padding-left: 20px;
    margin-bottom: 20px;
+}
+
+img.offset-10 {
+   // Medium devices (tablets, 768px and up)
+   @media (min-width: 768px) {
+      margin-top: -5%;
+   }
+
+   // Large devices (desktops, 992px and up)
+   @media (min-width: 992px) {
+      margin-top: -10%;
+   }
+}
+img.offset-25 {
+   // Medium devices (tablets, 768px and up)
+   @media (min-width: 768px) {
+      margin-top: -15%;
+   }
+
+   // Large devices (desktops, 992px and up)
+   @media (min-width: 992px) {
+      margin-top: -25%;
+   }
+}
+img.offset-50 {
+   // Medium devices (tablets, 768px and up)
+   @media (min-width: 768px) {
+      margin-top: -25%;
+   }
+
+   // Large devices (desktops, 992px and up)
+   @media (min-width: 992px) {
+      margin-top: -50%;
+   }
+}
+
+.body-wrapper {
+   padding: 0, 12px;
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
+
+   // Medium devices (tablets, 768px and up)
+   @media (min-width: 768px) {
+      width: 85%
+   }
+
+   // Large devices (desktops, 992px and up)
+   @media (min-width: 992px) {
+      width: 76%;
+   }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
 }

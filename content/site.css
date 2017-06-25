@@ -1,5 +1,152 @@
 html {
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #007db0;
+}
+
+article {
+  color: #999;
+  background-image: url("/content/images/metal.png");
+  background-size: 40px;
+  background-color: #2d2926;
+  background-repeat-y: no-repeat;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  clear: both;
+  position: relative;
+}
+
+article header, article footer, article .main-text {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+article header {
+  padding-top: 15px;
+}
+
+article header > h3 {
+  color: white;
+}
+
+article footer {
+  padding-top: 5px;
+  text-transform: uppercase;
+  font-family: "Dosis", sans-serif;
+  letter-spacing: .8px;
+}
+
+article.has-affix-right {
+  padding-right: 110px;
+  min-height: 367px;
+}
+
+article .affix-right {
+  width: 110px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+article .header-image {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 3px 3px 0 0;
+  overflow-y: hidden;
+  float: left;
+  margin-bottom: 15px;
+  border-bottom: 2.5px solid #007db0;
+}
+
+article .header-image > img {
+  width: 100%;
+}
+
+.date-panel {
+  background-color: #393633;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 3px 3px 0;
+}
+
+.date-panel .date {
+  text-transform: uppercase;
+  font-family: "Dosis", sans-serif;
+  padding-bottom: 20px;
+  position: relative;
+  border-bottom: 3px solid rgba(0, 125, 176, 0.6);
+}
+
+.date-panel .date > div:nth-of-type(1) {
+  font-size: 32px;
+  line-height: 0.5;
+  color: white;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.date-panel .date > div:nth-of-type(2) {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 0.5;
+  padding-top: 12px;
+}
+
+.date-panel .date > div:nth-of-type(3) {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.date-panel .date > div:nth-of-type(4) {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.date-panel .date.end:before {
+  position: absolute;
+  content: "TO";
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: -12px;
+  background-color: #393633;
+  width: 44px;
+}
+
+.date-panel .location {
+  text-transform: uppercase;
+  font-family: "Dosis", sans-serif;
+  font-size: 24px;
+  color: white;
+  padding: 15px 0;
+  font-weight: bold;
+  display: block;
+}
+
+.date-panel .location:hover {
+  color: #999;
+}
+
+.date-panel .info {
+  text-transform: uppercase;
+  font-family: "Dosis", sans-serif;
+  font-size: 24px;
+  color: #393633;
+  padding: 15px 0;
+  font-weight: bold;
+  display: block;
+  background-color: #007db0;
 }
 
 body {
@@ -7,7 +154,7 @@ body {
   background-image: url("/content/images/background.jpg");
   background-position-x: 0%, 100%;
   background-position-y: 0%, 0%;
-  background-size: auto, auto;
+  background-size: 100%;
   background-attachment: fixed, fixed;
   color: #999999;
 }
@@ -15,6 +162,12 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'Dosis', sans-serif;
   text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  letter-spacing: .8px;
+}
+
+h1, h2 {
   border-top: 2px solid #007db0;
   border-bottom: 2px solid #007db0;
   color: #b9b9b9;
@@ -22,4 +175,59 @@ h1, h2, h3, h4, h5 {
   padding-bottom: 6px;
   padding-left: 20px;
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  img.offset-10 {
+    margin-top: -5%;
+  }
+}
+
+@media (min-width: 992px) {
+  img.offset-10 {
+    margin-top: -10%;
+  }
+}
+
+@media (min-width: 768px) {
+  img.offset-25 {
+    margin-top: -15%;
+  }
+}
+
+@media (min-width: 992px) {
+  img.offset-25 {
+    margin-top: -25%;
+  }
+}
+
+@media (min-width: 768px) {
+  img.offset-50 {
+    margin-top: -25%;
+  }
+}
+
+@media (min-width: 992px) {
+  img.offset-50 {
+    margin-top: -50%;
+  }
+}
+
+.body-wrapper {
+  padding: 0, 12px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .body-wrapper {
+    width: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  .body-wrapper {
+    width: 76%;
+  }
 }
