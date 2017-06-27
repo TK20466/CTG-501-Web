@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "star-wars-font";
+  src:url("/fonts/star-wars-font.eot");
+  src:url("/fonts/star-wars-font.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/star-wars-font.woff") format("woff"),
+    url("/fonts/star-wars-font.ttf") format("truetype"),
+    url("/fonts/star-wars-font.svg#untitled-font-3") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "star-wars-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon:before {
+  font-family: "star-wars-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-rebel-alliance:before {
+  content: "\61";
+}
+.fa-darth-vather:before {
+  content: "\62";
+}
+.fa-galactic-imperium:before {
+  content: "\63";
+}
+.fa-sith-imperium:before {
+  content: "\64";
+}
+.fa-crused-lightsaber:before {
+  content: "\65";
+}
+.fa-lightsaber:before {
+  content: "\66";
+}
+.fa-new-jedi-order:before {
+  content: "\67";
+}
+.fa-new-republic:before {
+  content: "\68";
+}
+.fa-order-jedi:before {
+  content: "\69";
+}
+.fa-r2d2:before {
+  content: "\6a";
+}
+.fa-galatic-republic:before {
+  content: "\6b";
+}
+.fa-galatic-senade:before {
+  content: "\6c";
+}
+.fa-separatists:before {
+  content: "\6d";
+}
+.fa-dark-sun:before {
+  content: "\6e";
+}
+.fa-dark-sun-sith:before {
+  content: "\6f";
+}
+.fa-star-death:before {
+  content: "\70";
+}
+.fa-stormtroopper:before {
+  content: "\71";
+}
+.fa-old-galactic-republic:before {
+  content: "\72";
+}

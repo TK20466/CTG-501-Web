@@ -2,22 +2,69 @@
 <html>
    <head>
       <title>Connecticut 501st Garrison</title>
+      <script src="https://use.fontawesome.com/43b713b867.js"></script>
       <link href="https://fonts.googleapis.com/css?family=Dosis:500,700" rel="stylesheet"> <!-- google font Dosis -->
       <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+      <link href="/content/star-wars.css" rel="stylesheet" type="text/css">
       <link href="/content/site.css" rel="stylesheet" type="text/css">
    </head>
    <body>
+      <header class="site-nav">
+         <div class="site-nav-top">
+            <div class="social-media">
+               <a href="https://www.facebook.com/ConnecticutGarrison/" alt="facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+               </a>
+               <a href="https://twitter.com/501CTG" alt="twitter">
+                  <i class="fa fa-twitter fa-2x"></i>
+               </a>
+               <a href="Youtube">
+                  <i class="fa fa-youtube fa-2x"></i>
+               </a>
+            </div>
+            <div class="logo">
+            </div>
+            <div class="text-header">
+               501st CT Garrison
+            </div>
+         </div>
+         <div class="site-nav-buttons">
+            <div class="button-wrapper">
+               <a href="#" class="button">
+                  <div class="icon fa-star-death"></div>
+                  HOME
+                  <div class="notch"></div>
+               </a>
+               <a href="#" class="button active">
+                  <div class="icon fa-galactic-imperium"></div>
+                  EVENTS
+                  <div class="notch"></div>
+               </a>
+               <a href="#" class="button">
+                  <div class="icon fa-stormtroopper"></div>
+                  PHOTOS
+                  <div class="notch"></div>
+               </a>
+               <a href="#" class="button">
+                  <div class="icon fa-r2d2"></div>
+                  INFO
+                  <div class="notch"></div>
+               </a>
+               <a href="http://connsquad.com/forum/index.php" class="button">
+                  <div class="icon fa-darth-vather"></div>
+                  FORUMS
+                  <div class="notch"></div>
+               </a>
+            </div>
+         </div>
+      </header>
       <div class="body-wrapper">
-         <h1>Heading 1</h1>
-         <h2>Heading 2</h2>
-         <h3>Heading 3</h3>
-         <h4>Heading 4</h4>
-         <h5>Heading 5</h5>
-         <p>Paragraph Lorem Ipsum</p>
-         <p>Some long paragraph <a href="google.com">with an embedded link</a></p>
          <h2>Upcoming Events</h2>
 
-         <article class="has-affix-right">
+         <article class="has-affix-right notched">
             <section class="header-image">
                <img src="/content/images/boh.jpg" class="offset-10" />
             </section>
@@ -58,7 +105,7 @@
          </article>
          <article>
             <section class="header-image">
-               <img src="/content/images/boh.jpg" class="offset-10" />
+               <img src="/content/images/Stormtrooper_Corps.png" class="offset-5" />
             </section>
             <header>
                <h3>RidgeCon 2017</h3>
@@ -123,6 +170,62 @@
                <p>
                   This is our 3rd comic con/pop culture fandom celebration. We have activities and programs for all ages, but get a lot of families with children. We celebrate lots of different fandoms, but Star Wars is always a big one with our patrons.
                </p>
+               <ul class="glyphs css-mapping">
+        <li>
+          <div class="icon fa-rebel-alliance"></div>
+        </li>
+        <li>
+          <div class="icon fa-darth-vather"></div>
+        </li>
+        <li>
+          <div class="icon fa-galactic-imperium"></div>
+        </li>
+        <li>
+          <div class="icon fa-sith-imperium"></div>
+        </li>
+        <li>
+          <div class="icon fa-crused-lightsaber"></div>
+        </li>
+        <li>
+          <div class="icon fa-lightsaber"></div>
+        </li>
+        <li>
+          <div class="icon fa-new-jedi-order"></div>
+        </li>
+        <li>
+          <div class="icon fa-new-republic"></div>
+        </li>
+        <li>
+          <div class="icon fa-order-jedi"></div>
+        </li>
+        <li>
+          <div class="icon fa-r2d2"></div>
+        </li>
+        <li>
+          <div class="icon fa-galatic-republic"></div>
+        </li>
+        <li>
+          <div class="icon fa-galatic-senade"></div>
+        </li>
+        <li>
+          <div class="icon fa-separatists"></div>
+        </li>
+        <li>
+          <div class="icon fa-dark-sun"></div>
+        </li>
+        <li>
+          <div class="icon fa-dark-sun-sith"></div>
+        </li>
+        <li>
+          <div class="icon fa-star-death"></div>
+        </li>
+        <li>
+          <div class="icon fa-stormtroopper"></div>
+        </li>
+        <li>
+          <div class="icon fa-old-galactic-republic"></div>
+        </li>
+      </ul>
             </section>
             <section class="affix-right">
             </section>
@@ -132,4 +235,25 @@
          </article>
       </div>
    </body>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+      crossorigin="anonymous"></script>
+   <script type="text/javascript">
+      function handleHeader() {
+         var top  = window.pageYOffset || document.documentElement.scrollTop;
+         if (top > 75) {
+            $(".site-nav").addClass("collapsed");
+            $(".body-wrapper").addClass("padded");
+         }
+         else {
+            $(".site-nav").removeClass("collapsed");
+            $(".body-wrapper").removeClass("padded");
+         }
+      }
+
+      var scrollTimeout = null;
+      $(window).scroll(function(){
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function(){handleHeader()}, 100);
+      });
+   </script>
 </html>

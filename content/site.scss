@@ -6,6 +6,35 @@ $DSLight: #999;
 $Abel: 'Abel', sans-serif;
 $Dosis: 'Dosis', sans-serif;
 
+@mixin bottom-notch($bgcolor, $widthPercent, $bottomSize:15px, $offset:0, $notchColor:"transparent") {
+   $offset: unquote($offset);
+   $notchColor: unquote($notchColor);
+   $halfOffset: ($offset / 2);
+   $sideWidth: ((100 - $widthPercent) / 2);
+   position: relative;
+   &:after {
+     width: ($sideWidth + $halfOffset) * 1%;
+     left: 0;
+     bottom: -$bottomSize;
+     height: 0;
+     border-top: $bottomSize solid $bgcolor;
+     border-right: 10px solid $notchColor;
+     position: absolute;
+     content: " ";
+   }
+
+   &:before {
+     width: ($sideWidth - $halfOffset) * 1%;
+     right: 0;
+     bottom: -$bottomSize;
+     height: 0;
+     border-top: $bottomSize solid $bgcolor;
+     border-left: 10px solid $notchColor;
+     position: absolute;
+     content: " ";
+   }
+}
+
 html {
    font-family: $Abel;
    font-size: 16px;
@@ -24,10 +53,30 @@ article {
    background-repeat-y: no-repeat;
    //border: 2px solid $CTGBlue-faded;
    border-radius: 3px;
-   margin-bottom: 15px;
+   margin-bottom: 30px;
    padding-bottom: 15px;
    clear: both;
    position: relative;
+
+   &.notched {
+      @include bottom-notch($DSDark, 30, 15px, 20);
+      margin-bottom: 45px;
+      padding-bottom: 0px;
+      .date-panel {
+         height: calc(100% + 15px);
+      }
+   }
+
+   // Large devices (desktops, 992px and up)
+   @media (min-width: 992px) {
+      &.notched {
+         @include bottom-notch($DSDark, 10, 15px, 40);
+         margin-bottom: 45px;
+         padding-bottom: 0px;
+      }
+   }
+
+
 
    header, footer, .main-text {
       padding-left: 15px;
@@ -160,6 +209,7 @@ body {
    background-size: 100%;
    background-attachment: fixed, fixed;
    color: rgb(153, 153, 153);
+   margin:0;
 }
 
 h1, h2, h3, h4, h5 {
@@ -181,6 +231,17 @@ h1, h2 {
    margin-bottom: 20px;
 }
 
+img.offset-5 {
+   // Medium devices (tablets, 768px and up)
+   @media (min-width: 768px) {
+      margin-top: -2%;
+   }
+
+   // Large devices (desktops, 992px and up)
+   @media (min-width: 992px) {
+      margin-top: -5%;
+   }
+}
 img.offset-10 {
    // Medium devices (tablets, 768px and up)
    @media (min-width: 768px) {
@@ -215,11 +276,147 @@ img.offset-50 {
    }
 }
 
+header.site-nav {
+   background-color: $DSDark;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 5;
+
+   .site-nav-top {
+      text-align: center;
+      height: 135px;
+      transition: height 200ms ease;
+
+      &:after {
+         content: " "; /* Older browser do not support empty content */
+         visibility: hidden;
+         display: block;
+         height: 0;
+         clear: both;
+      }
+
+      >.text-header {
+         transition: line-height 200ms ease;
+         font-size: 3em;
+         color: white;
+         line-height: 127px;
+         padding-left: 180px;
+         text-transform: uppercase;
+         font-family: $Dosis;
+         font-weight: bold;
+      }
+
+      .logo {
+         transition: height 200ms ease, width 200ms ease;
+         background-image: url(/content/images/ctg_icons.png);
+         width: 150px;
+         height: 127px;
+         background-repeat: no-repeat;
+         background-position: center;
+         padding: 2px 15px;
+         float: left;
+      }
+
+      .social-media {
+         float: right;
+         width: 180px;
+         transition: padding-top 200ms ease;
+         padding-top: 50px;
+         text-align: center;
+         >a {
+            i {
+               vertical-align: middle;
+            }
+            margin: 0 8px;
+            color: $DSLight;
+            .fa-inverse {
+               color: $DSDark;
+            }
+         }
+      }
+   }
+
+   .site-nav-buttons {
+      height: 75px;
+      border-top: 1px solid $DSDarkish;
+      border-bottom: 3px solid $CTGBlue;
+      text-align: center;
+      .button-wrapper {
+         height: 100%;
+         width: calc(182px * 5);
+         display: inline-block;
+         .button {
+            display: block;
+            float: left;
+            width: 180px;
+            height: 100%;
+            border-left: 1px solid $DSDarkish;
+            border-right: 1px solid $DSDarkish;
+            position: relative;
+            color: $DSLight;
+            font-weight: bold;
+            letter-spacing: 0.8px;
+
+            >.icon {
+               font-size: 30px;
+               line-height: 30px;
+               padding-top: 12px;
+            }
+
+
+            &:hover {
+               background-color: $DSDarkish;
+            }
+            .notch {
+               display: none;
+            }
+            &.active .notch {
+               display: block;
+               position: absolute;
+               top: auto;
+               left: 50%;
+               border-bottom: 4px solid transparent;
+               width: 30px;
+               border-left: 4px solid transparent;
+               border-right: 4px solid transparent;
+               border-bottom-color: $CTGBlue;
+               box-sizing: content-box !important;
+               margin-left: -18px;
+               bottom: 0;
+            }
+         }
+      }
+   }
+
+   &.collapsed {
+      .site-nav-top {
+         height: 50px;
+         .logo {
+            width: 46px;
+            height: 46px;
+            background-size: contain;
+         }
+         .text-header {
+            line-height: 50px;
+         }
+         .social-media {
+            padding-top: 2px;
+         }
+      }
+   }
+}
+
 .body-wrapper {
    padding: 0, 12px;
    position: relative;
    margin-left: auto;
    margin-right: auto;
+   margin-top: 250px;
+
+   &.padded {
+      margin-top: 250px;
+   }
 
    // Medium devices (tablets, 768px and up)
    @media (min-width: 768px) {

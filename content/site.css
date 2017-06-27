@@ -15,10 +15,70 @@ article {
   background-color: #2d2926;
   background-repeat-y: no-repeat;
   border-radius: 3px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   padding-bottom: 15px;
   clear: both;
   position: relative;
+}
+
+article.notched {
+  position: relative;
+  margin-bottom: 45px;
+  padding-bottom: 0px;
+}
+
+article.notched:after {
+  width: 45%;
+  left: 0;
+  bottom: -15px;
+  height: 0;
+  border-top: 15px solid #2d2926;
+  border-right: 10px solid transparent;
+  position: absolute;
+  content: " ";
+}
+
+article.notched:before {
+  width: 25%;
+  right: 0;
+  bottom: -15px;
+  height: 0;
+  border-top: 15px solid #2d2926;
+  border-left: 10px solid transparent;
+  position: absolute;
+  content: " ";
+}
+
+article.notched .date-panel {
+  height: calc(100% + 15px);
+}
+
+@media (min-width: 992px) {
+  article.notched {
+    position: relative;
+    margin-bottom: 45px;
+    padding-bottom: 0px;
+  }
+  article.notched:after {
+    width: 65%;
+    left: 0;
+    bottom: -15px;
+    height: 0;
+    border-top: 15px solid #2d2926;
+    border-right: 10px solid transparent;
+    position: absolute;
+    content: " ";
+  }
+  article.notched:before {
+    width: 25%;
+    right: 0;
+    bottom: -15px;
+    height: 0;
+    border-top: 15px solid #2d2926;
+    border-left: 10px solid transparent;
+    position: absolute;
+    content: " ";
+  }
 }
 
 article header, article footer, article .main-text {
@@ -157,6 +217,7 @@ body {
   background-size: 100%;
   background-attachment: fixed, fixed;
   color: #999999;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5 {
@@ -175,6 +236,18 @@ h1, h2 {
   padding-bottom: 6px;
   padding-left: 20px;
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  img.offset-5 {
+    margin-top: -2%;
+  }
+}
+
+@media (min-width: 992px) {
+  img.offset-5 {
+    margin-top: -5%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -213,11 +286,155 @@ h1, h2 {
   }
 }
 
+header.site-nav {
+  background-color: #2d2926;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+header.site-nav .site-nav-top {
+  text-align: center;
+  height: 135px;
+  transition: height 200ms ease;
+}
+
+header.site-nav .site-nav-top:after {
+  content: " ";
+  /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+header.site-nav .site-nav-top > .text-header {
+  transition: line-height 200ms ease;
+  font-size: 3em;
+  color: white;
+  line-height: 127px;
+  padding-left: 180px;
+  text-transform: uppercase;
+  font-family: "Dosis", sans-serif;
+  font-weight: bold;
+}
+
+header.site-nav .site-nav-top .logo {
+  transition: height 200ms ease, width 200ms ease;
+  background-image: url(/content/images/ctg_icons.png);
+  width: 150px;
+  height: 127px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2px 15px;
+  float: left;
+}
+
+header.site-nav .site-nav-top .social-media {
+  float: right;
+  width: 180px;
+  transition: padding-top 200ms ease;
+  padding-top: 50px;
+  text-align: center;
+}
+
+header.site-nav .site-nav-top .social-media > a {
+  margin: 0 8px;
+  color: #999;
+}
+
+header.site-nav .site-nav-top .social-media > a i {
+  vertical-align: middle;
+}
+
+header.site-nav .site-nav-top .social-media > a .fa-inverse {
+  color: #2d2926;
+}
+
+header.site-nav .site-nav-buttons {
+  height: 75px;
+  border-top: 1px solid #393633;
+  border-bottom: 3px solid #007db0;
+  text-align: center;
+}
+
+header.site-nav .site-nav-buttons .button-wrapper {
+  height: 100%;
+  width: calc(182px * 5);
+  display: inline-block;
+}
+
+header.site-nav .site-nav-buttons .button-wrapper .button {
+  display: block;
+  float: left;
+  width: 180px;
+  height: 100%;
+  border-left: 1px solid #393633;
+  border-right: 1px solid #393633;
+  position: relative;
+  color: #999;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+}
+
+header.site-nav .site-nav-buttons .button-wrapper .button > .icon {
+  font-size: 30px;
+  line-height: 30px;
+  padding-top: 12px;
+}
+
+header.site-nav .site-nav-buttons .button-wrapper .button:hover {
+  background-color: #393633;
+}
+
+header.site-nav .site-nav-buttons .button-wrapper .button .notch {
+  display: none;
+}
+
+header.site-nav .site-nav-buttons .button-wrapper .button.active .notch {
+  display: block;
+  position: absolute;
+  top: auto;
+  left: 50%;
+  border-bottom: 4px solid transparent;
+  width: 30px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom-color: #007db0;
+  box-sizing: content-box !important;
+  margin-left: -18px;
+  bottom: 0;
+}
+
+header.site-nav.collapsed .site-nav-top {
+  height: 50px;
+}
+
+header.site-nav.collapsed .site-nav-top .logo {
+  width: 46px;
+  height: 46px;
+  background-size: contain;
+}
+
+header.site-nav.collapsed .site-nav-top .text-header {
+  line-height: 50px;
+}
+
+header.site-nav.collapsed .site-nav-top .social-media {
+  padding-top: 2px;
+}
+
 .body-wrapper {
   padding: 0, 12px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 250px;
+}
+
+.body-wrapper.padded {
+  margin-top: 250px;
 }
 
 @media (min-width: 768px) {
