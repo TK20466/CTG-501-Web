@@ -1,0 +1,34 @@
+<article class="notched" ng-class="{'has-affix-right': startDate || endDate}" id="{{title}}">
+   <section class="header-image" ng-if="src">
+      <img src="{{src}}" class="{{offset}}" />
+   </section>
+   <header>
+      <h3 ng-if="title">{{title}}</h3>
+      <h4 ng-if="subtitle">{{subtitle}}</h4>
+   </header>
+   <section class="main-text">
+      <ng-transclude></ng-transclude>
+   </section>
+   <section class="affix-right" ng-if="startDate || endDate">
+      <div class="date-panel">
+         <div class="date start" ng-if="startDate">
+            <div class="day">{{startDate.day}}</div>
+            <div class="month">{{startDate.month}}</div>
+            <div class="year">{{startDate.year}}</div>
+            <div class="time" ng-if="startDate.showTime">{{startDate.time}}</div>
+         </div>
+         <div class="date end" ng-if="endDate">
+            <div class="day">{{endDate.day}}</div>
+            <div class="month">{{endDate.month}}</div>
+            <div class="year">{{endDate.year}}</div>
+            <div class="time" ng-if="endDate.showTime">{{endDate.time}}</div>
+         </div>
+         <a class="location" href="{{location}}" ng-if="location">
+            MAP
+         </a>
+         <a class="info" href="{{info}}" ng-if="info">
+            INFO
+         </a>
+      </div>
+   </section>
+</article>

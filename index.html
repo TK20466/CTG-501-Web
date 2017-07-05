@@ -2,251 +2,66 @@
 <html>
    <head>
       <title>Connecticut 501st Garrison</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+      <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+      <link rel="manifest" href="/manifest.json">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2e5661">
+      <meta name="theme-color" content="#ffe2e2">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="https://use.fontawesome.com/43b713b867.js"></script>
       <link href="https://fonts.googleapis.com/css?family=Dosis:500,700" rel="stylesheet"> <!-- google font Dosis -->
       <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
       <link href="/content/star-wars.css" rel="stylesheet" type="text/css">
+      <link href="/content/blueimp-gallery.min.css" rel="stylesheet" type="text/css">
       <link href="/content/site.css" rel="stylesheet" type="text/css">
+      <base href="/">
    </head>
-   <body>
-      <header class="site-nav">
-         <div class="site-nav-top">
-            <div class="social-media">
-               <a href="https://www.facebook.com/ConnecticutGarrison/" alt="facebook">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-square fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-               </a>
-               <a href="https://twitter.com/501CTG" alt="twitter">
-                  <i class="fa fa-twitter fa-2x"></i>
-               </a>
-               <a href="Youtube">
-                  <i class="fa fa-youtube fa-2x"></i>
-               </a>
-            </div>
-            <div class="logo">
-            </div>
-            <div class="text-header">
-               501st CT Garrison
-            </div>
-         </div>
-         <div class="site-nav-buttons">
-            <div class="button-wrapper">
-               <a href="#" class="button">
-                  <div class="icon fa-star-death"></div>
-                  HOME
-                  <div class="notch"></div>
-               </a>
-               <a href="#" class="button active">
-                  <div class="icon fa-galactic-imperium"></div>
-                  EVENTS
-                  <div class="notch"></div>
-               </a>
-               <a href="#" class="button">
-                  <div class="icon fa-stormtroopper"></div>
-                  PHOTOS
-                  <div class="notch"></div>
-               </a>
-               <a href="#" class="button">
-                  <div class="icon fa-r2d2"></div>
-                  INFO
-                  <div class="notch"></div>
-               </a>
-               <a href="http://connsquad.com/forum/index.php" class="button">
-                  <div class="icon fa-darth-vather"></div>
-                  FORUMS
-                  <div class="notch"></div>
-               </a>
-            </div>
-         </div>
-      </header>
-      <div class="body-wrapper">
-         <h2>Upcoming Events</h2>
+   <body ng-app="ctgapp">
+      <navbar></navbar>
+      <div class="body-wrapper" ng-view autoscroll="true">
 
-         <article class="has-affix-right notched">
-            <section class="header-image">
-               <img src="/content/images/boh.jpg" class="offset-10" />
-            </section>
-            <header>
-               <h3>RidgeCon 2017</h3>
-               <h4>Ridgefield Library, 472 Main Street, Ridgefield, Connecticut, 06877</h4>
-            </header>
-            <section class="main-text">
-               <p>
-                  This is our 3rd comic con/pop culture fandom celebration. We have activities and programs for all ages, but get a lot of families with children. We celebrate lots of different fandoms, but Star Wars is always a big one with our patrons.
-               </p>
-            </section>
-            <section class="affix-right">
-               <div class="date-panel">
-                  <div class="date start">
-                     <div class="day">12</div>
-                     <div class="month">Aug</div>
-                     <div class="year">2017</div>
-                     <div class="time">10:00 am</div>
-                  </div>
-                  <div class="date end">
-                     <div class="day">12</div>
-                     <div class="month">Aug</div>
-                     <div class="year">2017</div>
-                     <div class="time">1:00 pm</div>
-                  </div>
-                  <a class="location" href="#">
-                     MAP
-                  </a>
-                  <a class="info" href="#">
-                     INFO
-                  </a>
-               </div>
-            </section>
-            <footer>
-               <a href="http://connsquad.com/forum/viewtopic.php?f=5&t=5259">Sign up here </a>
-            </footer>
-         </article>
-         <article>
-            <section class="header-image">
-               <img src="/content/images/Stormtrooper_Corps.png" class="offset-5" />
-            </section>
-            <header>
-               <h3>RidgeCon 2017</h3>
-               <h4>Ridgefield Library, 472 Main Street, Ridgefield, Connecticut, 06877</h4>
-            </header>
-            <section class="main-text">
-               <p>
-                  This is our 3rd comic con/pop culture fandom celebration. We have activities and programs for all ages, but get a lot of families with children. We celebrate lots of different fandoms, but Star Wars is always a big one with our patrons.
-               </p>
-            </section>
-            <footer>
-               <a href="http://connsquad.com/forum/viewtopic.php?f=5&t=5259">Sign up here </a>
-            </footer>
-         </article>
-
-         <article class="has-affix-right">
-            <header>
-               <h3>RidgeCon 2017</h3>
-               <h4>Ridgefield Library, 472 Main Street, Ridgefield, Connecticut, 06877</h4>
-            </header>
-            <section class="main-text">
-               <p>
-                  This is our 3rd comic con/pop culture fandom celebration. We have activities and programs for all ages, but get a lot of families with children. We celebrate lots of different fandoms, but Star Wars is always a big one with our patrons.
-               </p>
-            </section>
-            <section class="affix-right">
-               <div class="date-panel">
-                  <div class="date start">
-                     <div class="day">12</div>
-                     <div class="month">Aug</div>
-                     <div class="year">2017</div>
-                     <div class="time">10:00 am</div>
-                  </div>
-                  <div class="date end">
-                     <div class="day">12</div>
-                     <div class="month">Aug</div>
-                     <div class="year">2017</div>
-                     <div class="time">1:00 pm</div>
-                  </div>
-                  <a class="location" href="#">
-                     MAP
-                  </a>
-                  <a class="info" href="#">
-                     INFO
-                  </a>
-               </div>
-            </section>
-            <footer>
-               <a href="http://connsquad.com/forum/viewtopic.php?f=5&t=5259">Sign up here </a>
-            </footer>
-         </article>
-
-         <article>
-            <header>
-               <h3>RidgeCon 2017</h3>
-               <h4>Ridgefield Library, 472 Main Street, Ridgefield, Connecticut, 06877</h4>
-            </header>
-            <section class="pre-image">
-               <p></p>
-            </section>
-            <section class="main-text">
-               <p>
-                  This is our 3rd comic con/pop culture fandom celebration. We have activities and programs for all ages, but get a lot of families with children. We celebrate lots of different fandoms, but Star Wars is always a big one with our patrons.
-               </p>
-               <ul class="glyphs css-mapping">
-        <li>
-          <div class="icon fa-rebel-alliance"></div>
-        </li>
-        <li>
-          <div class="icon fa-darth-vather"></div>
-        </li>
-        <li>
-          <div class="icon fa-galactic-imperium"></div>
-        </li>
-        <li>
-          <div class="icon fa-sith-imperium"></div>
-        </li>
-        <li>
-          <div class="icon fa-crused-lightsaber"></div>
-        </li>
-        <li>
-          <div class="icon fa-lightsaber"></div>
-        </li>
-        <li>
-          <div class="icon fa-new-jedi-order"></div>
-        </li>
-        <li>
-          <div class="icon fa-new-republic"></div>
-        </li>
-        <li>
-          <div class="icon fa-order-jedi"></div>
-        </li>
-        <li>
-          <div class="icon fa-r2d2"></div>
-        </li>
-        <li>
-          <div class="icon fa-galatic-republic"></div>
-        </li>
-        <li>
-          <div class="icon fa-galatic-senade"></div>
-        </li>
-        <li>
-          <div class="icon fa-separatists"></div>
-        </li>
-        <li>
-          <div class="icon fa-dark-sun"></div>
-        </li>
-        <li>
-          <div class="icon fa-dark-sun-sith"></div>
-        </li>
-        <li>
-          <div class="icon fa-star-death"></div>
-        </li>
-        <li>
-          <div class="icon fa-stormtroopper"></div>
-        </li>
-        <li>
-          <div class="icon fa-old-galactic-republic"></div>
-        </li>
-      </ul>
-            </section>
-            <section class="affix-right">
-            </section>
-            <footer>
-               <a href="http://connsquad.com/forum/viewtopic.php?f=5&t=5259">Sign up here </a>
-            </footer>
-         </article>
       </div>
+      <footer ng-cloak>
+         <ul>
+            <li>
+               <a href="http://www.501st.com/request.php">Request An Appearance</a>
+            </li>
+            <li>
+               <a href="http://www.501st.com/members/join_form.php">Join Us</a>
+            </li>
+            <li>
+               <a href="https://twitter.com/501CTG"><icon class="fa fa-twitter fa-fw"></icon>Twitter</a>
+            </li>
+            <li>
+               <a href="https://www.facebook.com/ConnecticutGarrison/"><icon class="fa fa-facebook fa-fw"></icon>Facebook</a>
+            </li>
+         </ul>
+         <div class="copyright">&copy;2017 501ST LEGION, ALL RIGHTS RESERVED.</div>
+         <div class="copyright-2">The 501st Legion is a worldwide Star Wars costuming organization comprised of and operated by Star Wars fans. While it is not sponsored by Lucasfilm Ltd., it is Lucasfilm's preferred Imperial costuming group.</div>
+         <div class="copyright-2">Star Wars, its characters, costumes, and all associated items are the intellectual property of Lucasfilm. &copy; &amp; &trade; Lucasfilm Ltd. All rights reserved. Used under authorization.</div>
+         <div class="acknowledgments">Special thanks to <a href="http://fontawesome.io">FontAwesome</a> and <a href="https://angularjs.org/">AngularJS</a>.  Site developed by <a href="http://sarah-bailey.com">Sarah Bailey</a></div>
+      </footer>
    </body>
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-      crossorigin="anonymous"></script>
+   <script src="/scripts/jquery-3.2.1.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+   <script src="scripts/blueimp-gallery.min.js"></script>
+   <script src="scripts/ng-blueimp-gallery.js"></script>
+   <script src="scripts/moment.min.js"></script>
+   <script src="app/app.js"></script>
+   <script src="app/navigation/navbar.js"></script>
+   <script src="app/home/home.js"></script>
+   <script src="app/gallery/gallery.js"></script>
+   <script src="app/events/events.js"></script>
    <script type="text/javascript">
       function handleHeader() {
          var top  = window.pageYOffset || document.documentElement.scrollTop;
          if (top > 75) {
             $(".site-nav").addClass("collapsed");
-            $(".body-wrapper").addClass("padded");
          }
          else {
             $(".site-nav").removeClass("collapsed");
-            $(".body-wrapper").removeClass("padded");
          }
       }
 
@@ -255,5 +70,11 @@
       if (scrollTimeout) clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(function(){handleHeader()}, 100);
       });
+      $(document).ready(function() {
+         setTimeout(function() {
+            $("body > footer").addClass("opacity-1");
+         }, 100);
+      })
    </script>
+   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>

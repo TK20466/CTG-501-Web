@@ -1,0 +1,57 @@
+<header class="site-nav">
+   <div class="site-nav-top">
+      <div class="menu-toggle">
+         <button type="button" ng-click="toggleMenu()">
+            <span></span>
+         </button>
+      </div>
+      <div class="social-media">
+         <a href="https://www.facebook.com/ConnecticutGarrison/" alt="facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+         </a>
+         <a href="https://twitter.com/501CTG" alt="twitter">
+            <i class="fa fa-twitter fa-2x"></i>
+         </a>
+         <a href="https://www.youtube.com/channel/UCJeaQcQGP9O8U4DPBY9Ep-w">
+            <i class="fa fa-youtube fa-2x"></i>
+         </a>
+      </div>
+      <div class="logo">
+      </div>
+      <div class="text-header">
+         501<span class="super">st</span> CT Garrison
+      </div>
+   </div>
+   <div class="site-nav-buttons">
+      <div class="button-wrapper">
+         <a href="#" ng-click="navigate('/')" class="button" ng-class="{active: isActive('/')}">
+            <div class="icon fa-star-death"></div>
+            <span>HOME</span>
+            <div class="notch"></div>
+         </a>
+         <a href="#" ng-click="navigate('/events')" class="button" ng-class="{active: isActive('/events')}">
+            <div class="icon fa-galactic-imperium"></div>
+            <span>EVENTS</span>
+            <div class="notch"></div>
+         </a>
+         <a href="#" ng-click="navigate('/gallery')" class="button" ng-class="{active: isActive('/gallery')}">
+            <div class="icon fa-stormtroopper"></div>
+            <span>PHOTOS</span>
+            <div class="notch"></div>
+         </a>
+         <a href="#" ng-click="navigate('/about')" class="button" ng-class="{active: isActive('/about')}">
+            <div class="icon fa-r2d2"></div>
+            <span>INFO</span>
+            <div class="notch"></div>
+         </a>
+         <a href="http://connsquad.com/forum/index.php" class="button">
+            <div class="icon fa-darth-vather"></div>
+            <span>FORUMS</span>
+            <div class="notch"></div>
+         </a>
+      </div>
+   </div>
+</header>

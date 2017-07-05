@@ -35,9 +35,36 @@ $Dosis: 'Dosis', sans-serif;
    }
 }
 
+@keyframes navmargin {
+   0% {
+      margin-left: -184px;
+   }
+   100% {
+      margin-left: -144px;
+   }
+}
+@-webkit-keyframes navmargin {
+   0% {
+      margin-left: -184px;
+   }
+   100% {
+      margin-left: -144px;
+   }
+}
+@-moz-keyframes navmargin {
+   0% {
+      margin-left: -184px;
+   }
+   100% {
+      margin-left: -144px;
+   }
+}
+
 html {
    font-family: $Abel;
    font-size: 16px;
+   width: 100%;
+   overflow-x: hidden;
 }
 
 a {
@@ -59,7 +86,7 @@ article {
    position: relative;
 
    &.notched {
-      @include bottom-notch($DSDark, 30, 15px, 20);
+      @include bottom-notch($DSDark, 30, 15px, 0);
       margin-bottom: 45px;
       padding-bottom: 0px;
       .date-panel {
@@ -210,6 +237,47 @@ body {
    background-attachment: fixed, fixed;
    color: rgb(153, 153, 153);
    margin:0;
+   min-height:100%;
+}
+
+footer {
+   background-color: $DSDark;
+   padding: 10px 50px;
+   text-align: center;
+   font-size: .9em;
+   opacity: 0;
+   transition: opacity 1s ease;
+   &.opacity-1 {
+      opacity: 1;
+   }
+   .copyright {
+      font-weight: bold;
+      font-size: .9em;
+      margin-top: 5px;
+   }
+   .copyright-2, .acknowledgments {
+      font-size: .7em;
+   }
+
+   ul {
+      list-style-type: none;
+      margin: 0;
+      margin-bottom: 5px;
+      padding: 0;
+      li {
+          float: left;
+          width: 25%;
+          text-transform: uppercase;
+          font-family: $Dosis;
+      }
+      &:after {
+         content: " "; /* Older browser do not support empty content */
+         visibility: hidden;
+         display: block;
+         height: 0;
+         clear: both;
+      }
+   }
 }
 
 h1, h2, h3, h4, h5 {
@@ -285,7 +353,8 @@ header.site-nav {
 
    .site-nav-top {
       text-align: center;
-      height: 135px;
+      height: 50px;
+      position: relative;
       transition: height 200ms ease;
 
       &:after {
@@ -296,34 +365,45 @@ header.site-nav {
          clear: both;
       }
 
+      >.menu-toggle {
+         display: none;
+      }
+
       >.text-header {
-         transition: line-height 200ms ease;
+         transition: font-size 200ms ease;
          font-size: 3em;
          color: white;
-         line-height: 127px;
          padding-left: 180px;
          text-transform: uppercase;
          font-family: $Dosis;
          font-weight: bold;
+         line-height: 50px;
+         .super {
+            font-size: .7em;
+         }
       }
 
       .logo {
-         transition: height 200ms ease, width 200ms ease;
+         //transition: height 200ms ease, width 200ms ease;
          background-image: url(/content/images/ctg_icons.png);
-         width: 150px;
-         height: 127px;
          background-repeat: no-repeat;
          background-position: center;
          padding: 2px 15px;
-         float: left;
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 114px;
+         height: 112px;
+         background-size: contain;
+         margin-top: 5px;
       }
 
       .social-media {
          float: right;
          width: 180px;
          transition: padding-top 200ms ease;
-         padding-top: 50px;
          text-align: center;
+         padding-top: 2px;
          >a {
             i {
                vertical-align: middle;
@@ -346,6 +426,7 @@ header.site-nav {
          height: 100%;
          width: calc(182px * 5);
          display: inline-block;
+         //transition: margin-left 200ms ease;
          .button {
             display: block;
             float: left;
@@ -357,6 +438,7 @@ header.site-nav {
             color: $DSLight;
             font-weight: bold;
             letter-spacing: 0.8px;
+            transition: background-color 200ms ease;
 
             >.icon {
                font-size: 30px;
@@ -388,31 +470,334 @@ header.site-nav {
          }
       }
    }
+}
 
-   &.collapsed {
+//gallery stuff
+a.gallery-thumbnail {
+   width: 160px;
+   display: inline-block;
+   height: 160px;
+   padding: 10px;
+   >img {
+      border-radius: 10px;
+      border: 2px solid $CTGBlue-faded;
+   }
+}
+#links {
+   text-align: center;
+}
+
+//events stuffs
+a#requestEvent {
+   background-color: $CTGBlue;
+   border: 2px solid rgb(1, 57, 80);
+   border-radius: 5px;
+   display: block;
+   color: white;
+   font-size: 1.5em;
+   text-transform: uppercase;
+   font-weight: bold;
+   font-family: 'Dosis', sans-serif;
+   text-align: center;
+   margin-bottom: 15px;
+   padding: 10px;
+   transition: background-color 150ms ease;
+   &:hover {
+       background-color: #013950;
+   }
+}
+
+//about stuff
+img.command-picture {
+   float: left;
+   border-radius: 10px;
+   width: 250px;
+   margin-right: 15px;
+   &.right {
+      float: right;
+      margin-left: 15px;
+      margin-right: 0;
+   }
+}
+
+#history, #command-team, #about-us {
+   >h3 {
+      color: white;
+   }
+   margin-bottom: 30px;
+}
+
+.spotlight {
+   margin-top: 40px;
+   &:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+}
+
+//homepage
+.size-66, .size-33, .size-50 {
+   float: left;
+   width:100%;
+   margin-bottom: 25px;
+   >h2 {
+      text-align: center;
+      box-sizing: border-box;
+   }
+}
+@media (min-width: 800px) {
+   .size-md-50 {
+      width: 50%;
+   }
+}
+
+@media (min-width: 1200px) {
+   .size-66, .size-33, .size-50 {
+      box-sizing: border-box;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+   .size-66 {
+      width: 66%;
+   }
+   .size-50 {
+      width: 50%;
+   }
+   .size-33 {
+      width: 33%;
+   }
+}
+
+//carousel
+.slide-content {
+   border-radius: 5px;
+}
+
+.bar {
+   font-size: 1.2em;
+   text-align: center;
+   padding: 3px;
+   a {
+      transition: color 200ms ease;
+   }
+   a:hover {
+      color: white;
+   }
+}
+
+.new-member-container {
+   display: flex;
+   flex-direction: column;
+   height: 521px;
+   align-items: center;
+   >h2 {
+      width: 100%;
+   }
+   >.new-member {
+      flex-grow: 2;
+       border-radius: 5px;
+       position: relative;
+       max-width: 395px;
+       width: 100%;
+       text-align: center;
+       border: 5px solid $CTGBlue;
+       background-size: 400px 500px;
+       background-repeat: no-repeat;
+       background-position: center top;
+       >.bumper {
+          position: absolute;
+         bottom: 0px;
+         width: 100%;
+         color: white;
+         height: 15%;
+         background-color: $CTGBlue-faded;
+         border-radius: 0 0 5px 5px;
+         >.name {
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: $Dosis;
+         }
+         >.id {
+            font-size: 1.3em;
+            font-family: $Dosis;
+         }
+       }
+   }
+}
+.featured-images {
+   .blueimp-gallery {
+      background-color: $DSDark;
+      border-radius: 5px;
+   }
+   .blueimp-gallery-carousel {
+      margin-top: 0;
+      margin-bottom: 0;
+      @media (max-width: 768px) {
+         h3.title {
+             font-size: .8em;
+         }
+      }
+   }
+}
+
+.icon501 {
+   text-align: center;
+   padding: 25px 0;
+   img {
+      height: 300px;
+   }
+}
+
+@media (min-width: 1222px) {
+   header.site-nav.collapsed {
       .site-nav-top {
-         height: 50px;
+         height: 0px;
          .logo {
-            width: 46px;
-            height: 46px;
+            width: 114px;
+            height: 62px;
             background-size: contain;
+            margin-top: 5px;
          }
          .text-header {
-            line-height: 50px;
+            font-size: 0;
+            transition: none;
          }
          .social-media {
-            padding-top: 2px;
+            position: absolute;
+            right: 0;
+            top: 12px;
+         }
+      }
+   }
+}
+
+//mobile navigation stuffs
+// Medium devices (tablets, 768px and up)
+@media (max-width: 1221px) {
+   body {
+      width: 100%;
+      overflow-x: hidden;
+   }
+   header.site-nav > .site-nav-top {
+      .logo, .social-media {
+         display: none;
+      }
+      .text-header {
+         line-height: 50px;
+         font-size: 1.5em;
+         padding-left: 0;
+      }
+      .menu-toggle {
+         height: 100%;
+         width: 60px;
+         position: absolute;
+         display: block !important;
+         >button {
+            background-color: $CTGBlue;
+            color: white;
+            border: none;
+            height: 100%;
+            width: 100%;
+            font-size: 1.5em;
+            padding: 12.5px;
+            padding-top: 9px;
+            span, span:before, span:after {
+              cursor: pointer;
+              border-radius: 1px;
+              height: 5px;
+              width: 35px;
+              background: white;
+              position: absolute;
+              opacity: 1;
+              display: block;
+              content: '';
+              transition: background 200ms ease-in;
+            }
+            span:before {
+              top: -10px;
+              transition: transform 200ms ease-in;
+            }
+            span:after {
+              bottom: -10px;
+              transition: transform 200ms ease-in;
+            }
+         }
+      }
+      height: 50px;
+   }
+   header.site-nav .site-nav-buttons {
+      position: fixed;
+      width: 50%;
+      height: calc(100% - 50px);
+      background-color: #393633;
+      transform: translateX(-100%);
+      transition: transform 200ms ease;
+      .button-wrapper {
+         width: 100%;
+         display: block;
+         a.button {
+            width: 100%;
+            height: initial;
+            padding: 10px;
+            display: table;
+            box-sizing: border-box;
+            vertical-align: middle;
+            border-bottom: 1px solid #999;
+            &.active {
+               background-color: $CTGBlue;
+            }
+            .icon {
+               display: table-cell;
+               width: 50%;
+               text-align: right;
+               padding-right: 10px;
+            }
+            span {
+               display: table-cell;
+               vertical-align: middle;
+               text-align: left;
+            }
+            .notch {
+               display: none !important;
+            }
+         }
+      }
+   }
+   .body-wrapper {
+      transition: transform 200ms ease;
+      margin-top: 75px !important;
+   }
+   body.navbar-open {
+      .body-wrapper {
+         transform: translateX(50%);
+      }
+      .site-nav-buttons {
+         transform: translateX(0);
+      }
+      header.site-nav > .site-nav-top .menu-toggle button {
+         span {
+            background: transparent;
+         }
+         span:before {
+            transform: rotate(45deg);
+            top: 0;
+         }
+         span:after {
+            transform: rotate(-45deg);
+            bottom: 0;
          }
       }
    }
 }
 
 .body-wrapper {
-   padding: 0, 12px;
+   padding: 0 12px;
    position: relative;
    margin-left: auto;
    margin-right: auto;
-   margin-top: 250px;
+   margin-top: 150px;
+   overflow-x: hidden;
 
    &.padded {
       margin-top: 250px;
@@ -438,4 +823,8 @@ header.site-nav {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
 }
