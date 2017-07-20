@@ -1,6 +1,7 @@
 $CTGBlue: #007db0;
 $CTGBlue-faded: rgba(0, 125, 176, .6);
 $DSDark: #2d2926;
+$DSDark-faded: rgba(45, 41, 38, .6);
 $DSDarkish: #393633;
 $DSLight: #999;
 $Abel: 'Abel', sans-serif;
@@ -601,7 +602,7 @@ img.command-picture {
        max-width: 395px;
        width: 100%;
        text-align: center;
-       border: 5px solid $CTGBlue;
+       border: 5px solid $DSDark;
        background-size: 400px 500px;
        background-repeat: no-repeat;
        background-position: center top;
@@ -611,8 +612,7 @@ img.command-picture {
          width: 100%;
          color: white;
          height: 15%;
-         background-color: $CTGBlue-faded;
-         border-radius: 0 0 5px 5px;
+         background-color: $DSDark-faded;
          >.name {
             font-size: 1.5em;
             font-weight: bold;

@@ -633,7 +633,7 @@ img.command-picture.right {
   max-width: 395px;
   width: 100%;
   text-align: center;
-  border: 5px solid #007db0;
+  border: 5px solid #2d2926;
   background-size: 400px 500px;
   background-repeat: no-repeat;
   background-position: center top;
@@ -645,8 +645,7 @@ img.command-picture.right {
   width: 100%;
   color: white;
   height: 15%;
-  background-color: rgba(0, 125, 176, 0.6);
-  border-radius: 0 0 5px 5px;
+  background-color: rgba(45, 41, 38, 0.6);
 }
 
 .new-member-container > .new-member > .bumper > .name {
