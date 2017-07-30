@@ -1,2 +1,2 @@
 # CTG-501-Web
-CTG Temporary Website
+Development location for the CTG website
