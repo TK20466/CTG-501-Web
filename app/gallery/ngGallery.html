@@ -4,4 +4,8 @@
    <li ng-repeat="slide in slides" title="{{slide.title}}" data-index="{{$index}}" style="background-image: url({{slide.thumb}})"></li>
 </ol>
 </div>
-<div id="links" class="links blueimp-gallery-inner">  <a class="gallery-thumbnail" ng-repeat="slide in slides" href="{{slide.href}}" title="{{slide.title}}" data-index="{{$index}}">    <img ng-src="{{slide.thumb}}" alt="{{slide.title}}">  </a></div>
+<div id="links" class="links blueimp-gallery-inner">
+   <a class="gallery-thumbnail" ng-repeat="slide in slides" href="{{slide.href}}" title="{{slide.title}}" data-index="{{$index}}">
+      <img ng-src="{{slide.thumb}}" alt="{{slide.title}}">
+   </a>
+</div>

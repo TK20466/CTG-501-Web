@@ -30,6 +30,7 @@ html {
   font-size: 16px;
   width: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
 
 a {
@@ -247,7 +248,6 @@ body {
   background-attachment: fixed, fixed;
   color: #999999;
   margin: 0;
-  min-height: 100%;
 }
 
 footer {
@@ -496,10 +496,17 @@ header.site-nav .site-nav-buttons .button-wrapper .button.active .notch {
   bottom: 0;
 }
 
+.gallery-thumbnail.ng-enter {
+    opacity: 0;
+    transition: all .5s ease-in;
+}
+.gallery-thumbnail.ng-enter-active {
+    opacity: 1;
+}
+
 a.gallery-thumbnail {
-  width: 160px;
+  opacity: 1;
   display: inline-block;
-  height: 160px;
   padding: 10px;
 }
 
@@ -717,6 +724,9 @@ img.command-picture.right {
     right: 0;
     top: 12px;
   }
+  body {
+     height: 84%;
+  }
 }
 
 @media (max-width: 1221px) {
@@ -839,6 +849,7 @@ img.command-picture.right {
   margin-right: auto;
   margin-top: 150px;
   overflow-x: hidden;
+  min-height: 88%;
 }
 
 .body-wrapper.padded {
@@ -855,6 +866,11 @@ img.command-picture.right {
   .body-wrapper {
     width: 76%;
   }
+}
+
+
+.center {
+   text-align: center;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

@@ -1,4 +1,4 @@
-var app = angular.module('ctgapp', ['ngRoute', 'ui.blueimp.gallery'])
+var app = angular.module('ctgapp', ['ngRoute', 'ngAnimate', 'ui.blueimp.gallery'])
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when("/", {

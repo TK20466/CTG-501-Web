@@ -1,24 +1,31 @@
-function buildItem(i) {
-   return {
-      href: "/images/fullsize/ctg_" + zeroFill(i, 4) + ".jpg",
-      thumb: "/images/thumbs/ctg_" + zeroFill(i, 4) + ".jpg",
-      //title: "image: " + i
-   }
-}
-
-function zeroFill( number, width )
-{
-  width -= number.toString().length;
-  if ( width > 0 )
-  {
-    return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
-  }
-  return number + ""; // always return a string
-}
-
 angular.module("ctgapp")
-   .controller("galleryController", ["$scope", function($scope) {
+   .controller("galleryController", ["$scope", "API", "$interval", function($scope, $API, $interval) {
       $scope.images = [];
-      for (var i = 0; i < 86; i++)
-         $scope.images.push(buildItem(i));
+      var imgQueue = [];
+      var repeatQueue = null;
+      getImages(1);
+
+      function getImages(page) {
+         $API.images.get(page).then(function(images) {
+            addImages(images.results);
+            if (images.more) getImages(page+1);
+         })
+      }
+
+      function addImages(imgs) {
+         for (var i = 0; i < imgs.length; i++) {
+            imgQueue.push(imgs[i]);
+         }
+         if (repeatQueue == null) repeatQueue = $interval(handleQueue, 50);
+      }
+
+      function handleQueue() {
+         var shift = imgQueue.shift();
+         $scope.images.push(shift);
+         console.log(shift, imgQueue.length, $scope.images.length);
+         if (imgQueue.length == 0) {
+            $interval.cancel(repeatQueue);
+            repeatQueue = null;
+         }
+      }
    }]);
