@@ -14,7 +14,7 @@ angular.module("ctgapp")
       addImage("airmuseum.jpg", "New England Air Museum")
    );
    $timeout(function() {
-    $.ajax({ url: 'http://platform.twitter.com/widgets.js', dataType: 'script', cache:true});
+    $.ajax({ url: 'https://platform.twitter.com/widgets.js', dataType: 'script', cache:true});
 }, 1000);
 }]);
 
