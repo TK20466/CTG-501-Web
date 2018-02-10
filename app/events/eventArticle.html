@@ -6,8 +6,7 @@
       <h3 ng-if="title">{{title}}</h3>
       <h4 ng-if="subtitle">{{subtitle}}</h4>
    </header>
-   <section class="main-text">
-      <ng-transclude></ng-transclude>
+   <section class="main-text" ng-bind-html="htmlContent">
    </section>
    <section class="affix-right" ng-if="startDate || endDate">
       <div class="date-panel">

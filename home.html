@@ -27,35 +27,10 @@
 </div>
 <div class="size-50">
    <h2><icon class="icon fa-galactic-imperium"></icon> Upcoming Events</h2>
-   <div class="events-bars">
+   <div class="events-bars" ng-repeat="x in events">
       <div class="bar">
-         <a href="/events#RidgeCon">
-            RidgeCon @ Ridgefield Library - August 8 2017
-         </a>
-      </div>
-      <div class="bar">
-         <a href="/events#Wishes on Wheels Truck Convoy for Make a Wish">
-         Wishes on Wheels Truck Convoy - September 10 2017
-         </a>
-      </div>
-      <div class="bar">
-         <a href="/events#The Green Galaxy">
-         The Green Galaxy - September 16 2017
-         </a>
-      </div>
-      <div class="bar">
-         <a href="/events#Bristol Mum Festival">
-         Bristol Mum Festival - September 24 2017
-         </a>
-      </div>
-      <div class="bar">
-         <a href="/events#Apple Harvest Festival Parade">
-            Apple Harvest Festival Parade - October 1 2017
-         </a>
-      </div>
-      <div class="bar">
-         <a href="/events#Star Wars Reads Day">
-         Star Wars Reads Day - October 14 2017
+         <a href="/events">
+            {{ x.title }} - {{ x.dateStr }}
          </a>
       </div>
    </div>

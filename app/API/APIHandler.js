@@ -10,29 +10,20 @@ angular.module("ctgapp")
             featured: GetFeaturedEventImages
          },
          events: {
-            upcoming: GetUpcomingEvents,
             get: GetConfirmedEvents
          }
       }
 
-      function GetUpcomingEvents() {
+      function GetConfirmedEvents() {
             var parameters = {
                sortDir: 'desc',
-               calendars: 2
+               calendars: 5,
+               hidden: 0,
+               sortBy: 'date',
             }
-            var url = buildUrl("/forums/topics", parameters);
+            var url = buildUrl("/calendar/events", parameters);
 
-            return $http({ url: url }).then(parseTopics);
-      }
-
-      function GetPublicInfoForEvents() {
-         var parameters = {
-            sortDir: 'desc',
-            forums: 20
-         }
-         var url = buildUrl("/forums/topics", parameters);
-
-         return $http({ url: url }).then(parseTopics);
+            return $http({ url: url }).then(parseEvents).then(removePastEvents);
       }
 
       function GetEventImages(page) {
@@ -95,6 +86,51 @@ angular.module("ctgapp")
             description: image.description,
             date: new Date(image.date)
          }
+      }
+
+      function parseEvents(response) {
+         var results = response.data.results;
+         return results.map(parseEvent);
+      }
+
+      function parseEvent(obj) {
+         return {
+            start: obj.start,
+            end: obj.end,
+            title: obj.title,
+            description: obj.description,
+            location: parseGoogleMap(obj.location),
+            subtitle: parseLocation(obj.location).join(", ")
+         }
+      }
+
+      function removePastEvents(events) {
+         var filtered = [];
+         for (var i = 0; i < events.length; i++) {
+            if (moment(events[i].start) > moment())
+               filtered.push(events[i]);
+         }
+         return filtered;
+      }
+
+      function parseLocation(addr) {
+         var locationParts = [];
+         if (addr.addressLines && addr.addressLines.length > 0 && addr.addressLines[0] != null) {
+            for (var i = 0; i < addr.addressLines.length; i++) {
+               locationParts.push(addr.addressLines[i]);
+            }
+         }
+         if (addr.city) locationParts.push(addr.city);
+         if (addr.region) locationParts.push(addr.region);
+         if (addr.postalCode) locationParts.push(addr.postalCode);
+
+         return locationParts;
+      }
+
+      function parseGoogleMap(addr) {
+         var base = "https://www.google.com/maps/place/";
+         var locationParts = parseLocation(addr);
+         return base + locationParts.join("+") + "/" + addr.lat + "," + addr.long;
       }
 
       function parseTopics(response) {

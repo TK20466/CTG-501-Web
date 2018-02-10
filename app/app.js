@@ -1,4 +1,4 @@
-var app = angular.module('ctgapp', ['ngRoute', 'ngAnimate', 'ui.blueimp.gallery'])
+var app = angular.module('ctgapp', ['ngRoute', 'ngAnimate', 'ui.blueimp.gallery', 'ngSanitize'])
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when("/", {
@@ -6,7 +6,8 @@ app.config(function($routeProvider, $locationProvider) {
         controller : "homePageController"
     })
     .when("/events", {
-        templateUrl : "events.html"
+        templateUrl : "events.html",
+        controller: "eventsController"
     })
     .when("/about", {
         templateUrl : "about.html"
