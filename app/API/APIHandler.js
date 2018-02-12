@@ -90,7 +90,13 @@ angular.module("ctgapp")
 
       function parseEvents(response) {
          var results = response.data.results;
-         return results.map(parseEvent);
+         return results.map(parseEvent).sort(sortEvents);
+      }
+
+      function sortEvents(a, b) {
+         if (a.start < b.start) return -1;
+         else if (a.start > b.start) return 1;
+         return 0;
       }
 
       function parseEvent(obj) {
