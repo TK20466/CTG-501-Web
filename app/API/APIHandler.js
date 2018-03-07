@@ -17,13 +17,13 @@ angular.module("ctgapp")
       function GetConfirmedEvents() {
             var parameters = {
                sortDir: 'desc',
-               calendars: 5,
+               calendars: 2,
                hidden: 0,
                sortBy: 'date',
             }
             var url = buildUrl("/calendar/events", parameters);
 
-            return $http({ url: url }).then(parseEvents).then(removePastEvents);
+            return $http({ url: url }).then(parseEvents).then(removeBlankEvents).then(removePastEvents);
       }
 
       function GetEventImages(page) {
@@ -104,7 +104,7 @@ angular.module("ctgapp")
             start: obj.start,
             end: obj.end,
             title: obj.title,
-            description: obj.description,
+            description: obj.secondary_description,
             location: parseGoogleMap(obj.location),
             subtitle: parseLocation(obj.location).join(", ")
          }
@@ -114,6 +114,15 @@ angular.module("ctgapp")
          var filtered = [];
          for (var i = 0; i < events.length; i++) {
             if (moment(events[i].start) > moment())
+               filtered.push(events[i]);
+         }
+         return filtered;
+      }
+
+      function removeBlankEvents(events) {
+         var filtered = [];
+         for (var i = 0; i < events.length; i++) {
+            if (events[i].description != null && events[i].description != "")
                filtered.push(events[i]);
          }
          return filtered;
