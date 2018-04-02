@@ -104,6 +104,7 @@ angular.module("ctgapp")
             start: obj.start,
             end: obj.end,
             title: obj.title,
+            src: obj.cover_photo == null ? null : "https://ctg501.com/community/uploads/" + obj.cover_photo,
             description: obj.secondary_description,
             location: parseGoogleMap(obj.location),
             subtitle: parseLocation(obj.location).join(", ")
