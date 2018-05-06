@@ -82,7 +82,7 @@ angular.module("ctgapp")
          return {
             title: image.caption,
             href: image.images.large,
-            thumb: image.images.thumb,
+            thumb: image.images.small,
             description: image.description,
             date: new Date(image.date)
          }
