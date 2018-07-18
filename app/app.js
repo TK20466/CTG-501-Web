@@ -19,6 +19,12 @@ app.config(function($routeProvider, $locationProvider) {
     .when("/test", {
         templateUrl : "test.html"
     })
+    .when("/newsletter", {
+        templateUrl : "newsletter-06-2018.html"
+    })
+    .when("/newsletter-06-2018", {
+        templateUrl : "newsletter-06-2018.html"
+    })
     .when("/notfound", {
         templateUrl : "404.html"
     })
